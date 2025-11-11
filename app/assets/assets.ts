@@ -3,10 +3,8 @@ import Logo from './ic_logo.svg'
 import HeaderBG from './ic_header_bg.png'
 import Menu from './ic_menu.svg'
 import Close from './ic_close.svg'
-import ProfileImgRound from './ic_profile_img.png'
 import RightArrowLight from './ic_right_arrow.svg'
 import DownloadArrow from './ic_download_arrow.svg'
-import ProfileImage from './ic_user_image.png'
 import CodeIcon from './ic_code.svg'
 import EduIcon from './ic_education.svg'
 import ProjectIcon from './ic_projects.svg'
@@ -15,10 +13,6 @@ import FigmaIcon from './ic_figma.svg'
 import FirebaseIcon from './ic_firebase.svg'
 import GitIcon from './ic_git.svg'
 import MongoIcon from './ic_mongo.svg'
-import WebIcon from './ic_web.svg'
-import AndroidIcon from './ic_android.svg'
-import IotIcon from './ic_iot.svg'
-import DevopsIcon from './ic_devops.svg'
 import RightArrowDark from './ic_right_arrow_dark.svg'
 import IntellijIcon from './ic_intellij.svg'
 import PycharmIcon from './ic_pycharm.svg'
@@ -35,67 +29,85 @@ import YoutubeIcon from './ic_youtube.svg'
 import FacebookIcon from './ic_facebook.svg'
 import InstagramIcon from './ic_instagram.svg'
 
+const ProfileImgRound = "https://firebasestorage.googleapis.com/v0/b/my-website-codewithcc.firebasestorage.app/o/public%2Fic_profile_img.png?alt=media"
+const ProfileImage = "https://firebasestorage.googleapis.com/v0/b/my-website-codewithcc.firebasestorage.app/o/public%2Fic_user_image.png?alt=media"
+
 export const assets = {
     Arrow, Logo, HeaderBG, Menu, Close, ProfileImgRound, RightArrowLight, DownloadArrow, ProfileImage, RightArrowDark, GithubIcon, SendIcon, SuccessIcon, ErrorIcon, SuccessCloseIcon, ErrorCloseIcon
 }
 
-export const workData = [
+export const navItemsHome = [
   {
-    title: 'Frontend project',
-    description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
-    bgImage: '/ic_project1.png',
-    github: 'https://github.com',
-    demo: '/projects?id=1'
+    link: '#top',
+    label: 'Home'
   },
   {
-    title: 'Geo based app',
-    description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
-    bgImage: '/ic_project2.png',
-    github: 'https://github.com',
-    demo: '/projects?id=2'
+    link: '#services',
+    label: 'Services'
   },
   {
-    title: 'Photography site',
-    description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
-    bgImage: '/ic_project3.png',
-    github: 'https://github.com',
-    demo: '/projects?id=3'
+    link: '#works',
+    label: 'My Works'
   },
   {
-    title: 'UI/UX designing',
-    description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
-    bgImage: '/ic_project4.png',
-    github: 'https://github.com',
-    demo: '/projects?id=4'
-  },
-]
-
-export const servicesData = [
-  {
-    icon: WebIcon,
-    title: "Website",
-    description: "Crafting responsive, high-performance websites tailored to your business goals and user needs.",
-    link: "/services?id=1"
+    link: '#about',
+    label: 'About Me'
   },
   {
-    icon: AndroidIcon,
-    title: "Android App",
-    description: "Building native Android applications that are fast, intuitive, and deliver a seamless user experience.",
-    link: "/services?id=2"
-  },
-  {
-    icon: IotIcon,
-    title: "IoT",
-    description: "Connecting your physical devices to the digital world with secure, scalable, and intelligent IoT solutions.",
-    link: "/services?id=3"
-  },
-  {
-    icon: DevopsIcon,
-    title: "DevOps",
-    description: "Streamlining your development and operations with CI/CD, automation, and robust cloud infrastructure.",
-    link: "/services?id=4"
+    link: '#contact',
+    label: 'Contact'
   }
 ]
+
+export const navItemsOther = [
+  {
+    link: '/#top',
+    label: 'Home'
+  },
+  {
+    link: '/#services',
+    label: 'Services'
+  },
+  {
+    link: '/#works',
+    label: 'My Works'
+  },
+  {
+    link: '/#about',
+    label: 'About Me'
+  },
+  {
+    link: '/#contact',
+    label: 'Contact'
+  }
+]
+
+// export const servicesData = [
+//   {
+//     icon: WebIcon,
+//     title: "Website",
+//     description: "Crafting responsive, high-performance websites tailored to your business goals and user needs.",
+//     link: "/services?id=1"
+//   },
+//   {
+//     icon: AndroidIcon,
+//     title: "Android App",
+//     description: "Building native Android applications that are fast, intuitive, and deliver a seamless user experience.",
+//     link: "/services?id=2"
+//   },
+//   {
+//     icon: IotIcon,
+//     title: "IoT",
+//     description: "Connecting your physical devices to the digital world with secure, scalable, and intelligent IoT solutions.",
+//     link: "/services?id=3"
+//   },
+//   {
+//     icon: DevopsIcon,
+//     title: "DevOps",
+//     description: "Streamlining your development and operations with CI/CD, automation, and robust cloud infrastructure.",
+//     link: "/services?id=4"
+//   }
+// ]
 
 export const infoList = [
     { icon: CodeIcon, title: 'Languages', description: 'HTML, CSS, JavaScript React Js, Next Js' },

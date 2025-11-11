@@ -1,15 +1,16 @@
-import Navbar from './components/Navbar'
-import Header from './components/Header';
-import About from './components/About';
-import Services from './components/Services';
-import Projects from './components/Projects';
-import Contact from './components/Contact';
-import Footer from './components/Footer';
+import Navbar from '@/app/components/Navbar'
+import Header from '@/app/components/Header'
+import About from '@/app/components/About'
+import Services from '@/app/components/Services'
+import Projects from '@/app/components/Projects'
+import Contact from '@/app/components/Contact'
+import Footer from '@/app/components/Footer'
+import { navItemsHome } from '@/app/assets/assets'
 
 export default function Home() {
   return (
     <div className='flex flex-col items-center gap-32'>
-      <Navbar />
+      <Navbar navList={navItemsHome} />
       <Header />
       <About />
       <Services />
@@ -17,5 +18,5 @@ export default function Home() {
       <Contact />
       <Footer />
     </div>
-  );
+  )
 }

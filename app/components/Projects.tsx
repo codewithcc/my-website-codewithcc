@@ -1,8 +1,24 @@
-import { assets, workData } from "../assets/assets"
-import ProjectCard from "./ProjectCard"
+"use client"
+
+import { assets } from "@/app/assets/assets"
+import { ProjectType } from "@/app/models/Project"
+import ProjectCard from "@/app/components/ProjectCard"
 import Image from "next/image"
+import { useEffect, useState } from "react"
+import { ProjectApi } from "../lib/data"
 
 const Projects = () => {
+    const [projects, setProjects] = useState<ProjectType[]>([])
+
+    const fetchProjects = async () => {
+        const data = await ProjectApi.getShowProjects()
+        setProjects(data)
+    }
+
+    useEffect(() => {
+        fetchProjects()
+    }, [])
+
     return (
         <div id="works" className="z-50 flex flex-col cursor-default scroll-mt-32 items-center">
             <div className="flex flex-col items-center">
@@ -12,20 +28,21 @@ const Projects = () => {
             </div>
             <div className="mt-12 grid grid-cols-1 gap-8 lg:grid-cols-4">
                 {
-                    workData.map(({title, description, bgImage, github, demo}, id) => (
+                    projects.map((project) => (
                         <ProjectCard
-                            key={id}
-                            title={title}
-                            description={description}
-                            image={bgImage}
-                            githubUrl={github}
-                            demoUrl={demo}
-                            techStack={['Next.js', 'Firebase', 'Tailwind CSS', 'Jetpack Compose']}
+                            key={project._id}
+                            id={project._id}
+                            title={project.title}
+                            description={project.description}
+                            bgImage={project.bgImage}
+                            stack={project.stack}
+                            github={project.github}
+                            more={project.more}
                         />
                     ))
                 }
             </div>
-            <a href="/projects" className="flex items-center mt-20 border border-slate-500 px-8 py-2 rounded-full">Show more <Image src={assets.RightArrowDark} alt="right arrow icon" className="w-6 h-auto" /></a>
+            <a href="/projects" className="flex items-center mt-20 border bg-white border-slate-500 px-8 py-2 rounded-full">Show more <Image loading="lazy" src={assets.RightArrowDark} alt="right arrow icon" className="w-6 h-auto" /></a>
         </div>
     )
 }

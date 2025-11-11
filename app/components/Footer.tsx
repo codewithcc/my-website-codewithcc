@@ -1,17 +1,17 @@
 "use client"
 
 import Image from "next/image"
-import { assets, socialIcons } from "../assets/assets"
+import { assets, socialIcons } from "@/app/assets/assets"
 
 const Footer = () => {
     return (
         <div className="flex flex-col items-center justify-center w-full px-4 pt-2 pb-8 bg-pink-50 lg:pb-6 cursor-default">
-            <Image src={assets.Logo} alt="logo icon" />
+            <Image src={assets.Logo} alt="logo icon" loading="lazy" />
             <a href="mailto:codewithcc.dev@gmail.com">codewithcc.dev@gmail.com</a>
             <div className="flex items-center justify-center mt-4 gap-8 lg:gap-12">
                 {
                     socialIcons.map(({icon, link}, id) => (
-                        <Image key={id} onClick={(e) => { e.preventDefault(); window.open(link, '_blank', ) }} src={icon} alt="social icon" className="w-8 h-auto transition-all ease-linear duration-150 cursor-pointer hover:scale-125 lg:w-6" />
+                        <Image key={id} onClick={(e) => { e.preventDefault(); window.open(link, '_blank', ) }} src={icon} alt="social icon" className="w-8 h-auto transition-all ease-linear duration-150 cursor-pointer hover:scale-125 lg:w-6" loading="lazy" />
                     ))
                 }
             </div>
