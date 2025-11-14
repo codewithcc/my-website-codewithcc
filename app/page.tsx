@@ -7,7 +7,7 @@ import Contact from '@/app/components/Contact'
 import Footer from '@/app/components/Footer'
 import { navItemsHome } from '@/app/assets/assets'
 
-export default function Home() {
+export default function HomePage() {
   return (
     <div className='flex flex-col items-center gap-32'>
       <Navbar navList={navItemsHome} />

@@ -5,7 +5,7 @@ export const metadata: Metadata = {
     description: ""
 }
 
-export default function Projects() {
+export default function ProjectsPage() {
     return (
         <div className="flex items-center justify-center h-screen">
             <h1>Projects page - Under Development</h1>

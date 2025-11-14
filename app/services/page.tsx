@@ -5,7 +5,7 @@ export const metadata: Metadata = {
     description: ""
 }
 
-export default function Services() {
+export default function ServicesPage() {
     return (
         <div className="flex items-center justify-center h-screen">
             <h1>Services page - Under Development</h1>
