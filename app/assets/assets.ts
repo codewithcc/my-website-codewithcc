@@ -1,4 +1,5 @@
-import Arrow from './ic_arrow.svg'
+import ArrowLight from './ic_arrow.svg'
+import ArrowDark from './ic_arrow_dark.svg'
 import Logo from './ic_logo.svg'
 import HeaderBG from './ic_header_bg.png'
 import Menu from './ic_menu.svg'
@@ -28,12 +29,13 @@ import LinkedinIcon from './ic_linkedin.svg'
 import YoutubeIcon from './ic_youtube.svg'
 import FacebookIcon from './ic_facebook.svg'
 import InstagramIcon from './ic_instagram.svg'
+import SignOutIcon from './ic_sign_out.svg'
 
 const ProfileImgRound = "https://firebasestorage.googleapis.com/v0/b/my-website-codewithcc.firebasestorage.app/o/public%2Fic_profile_img.png?alt=media"
 const ProfileImage = "https://firebasestorage.googleapis.com/v0/b/my-website-codewithcc.firebasestorage.app/o/public%2Fic_user_image.png?alt=media"
 
 export const assets = {
-    Arrow, Logo, HeaderBG, Menu, Close, ProfileImgRound, RightArrowLight, DownloadArrow, ProfileImage, RightArrowDark, GithubIcon, SendIcon, SuccessIcon, ErrorIcon, SuccessCloseIcon, ErrorCloseIcon
+    ArrowLight, ArrowDark, Logo, HeaderBG, Menu, Close, ProfileImgRound, RightArrowLight, DownloadArrow, ProfileImage, RightArrowDark, GithubIcon, SendIcon, SuccessIcon, ErrorIcon, SuccessCloseIcon, ErrorCloseIcon, SignOutIcon
 }
 
 export const navItemsHome = [
@@ -81,33 +83,6 @@ export const navItemsOther = [
     label: 'Contact'
   }
 ]
-
-// export const servicesData = [
-//   {
-//     icon: WebIcon,
-//     title: "Website",
-//     description: "Crafting responsive, high-performance websites tailored to your business goals and user needs.",
-//     link: "/services?id=1"
-//   },
-//   {
-//     icon: AndroidIcon,
-//     title: "Android App",
-//     description: "Building native Android applications that are fast, intuitive, and deliver a seamless user experience.",
-//     link: "/services?id=2"
-//   },
-//   {
-//     icon: IotIcon,
-//     title: "IoT",
-//     description: "Connecting your physical devices to the digital world with secure, scalable, and intelligent IoT solutions.",
-//     link: "/services?id=3"
-//   },
-//   {
-//     icon: DevopsIcon,
-//     title: "DevOps",
-//     description: "Streamlining your development and operations with CI/CD, automation, and robust cloud infrastructure.",
-//     link: "/services?id=4"
-//   }
-// ]
 
 export const infoList = [
     { icon: CodeIcon, title: 'Languages', description: 'HTML, CSS, JavaScript React Js, Next Js' },

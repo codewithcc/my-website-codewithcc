@@ -8,7 +8,7 @@ export async function generateMetadata({ params }: { params: Promise<{ id: strin
 
     if (!service) return {
         title: "Service Not Found | Code with Cc",
-        description: ""
+        description: "Oops! The page you were looking for doesn't exist. Head back to the homepage to explore my projects and services."
     }
 
     return {

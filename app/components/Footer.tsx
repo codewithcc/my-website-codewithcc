@@ -5,7 +5,7 @@ import { assets, socialIcons } from "@/app/assets/assets"
 
 const Footer = () => {
     return (
-        <div className="flex flex-col items-center justify-center w-full px-4 pt-2 pb-8 bg-pink-50 lg:pb-6 cursor-default">
+        <footer className="flex flex-col items-center justify-center w-full px-4 pt-2 pb-8 bg-pink-50 lg:pb-6 cursor-default">
             <Image src={assets.Logo} alt="logo icon" loading="lazy" />
             <a href="mailto:codewithcc.dev@gmail.com">codewithcc.dev@gmail.com</a>
             <div className="flex items-center justify-center mt-4 gap-8 lg:gap-12">
@@ -24,7 +24,7 @@ const Footer = () => {
                     <a className="hover:bg-pink-200 px-2 rounded-full transition-all ease-linear duration-150 lg:px-4 hover:text-pink-800" href="https://www.linkedin.com/in/codewithcc/" target="_blank" rel="noopener noreferrer">Connect with Me</a>
                 </div>
             </div>
-        </div>
+        </footer>
     )
 }
 

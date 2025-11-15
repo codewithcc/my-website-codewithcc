@@ -2,7 +2,7 @@ import { Metadata } from "next"
 
 export const metadata: Metadata = {
     title: "Projects | Code with Cc",
-    description: ""
+    description: "Dive into detailed case studies of my completed projects. Discover the challenges, solutions, and measurable results achieved for clients across various industries."
 }
 
 export default function ProjectsPage() {

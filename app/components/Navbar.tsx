@@ -4,16 +4,7 @@ import Image from "next/image";
 import { assets } from "@/app/assets/assets";
 import { useEffect, useRef, useState } from "react";
 
-type NavItem = {
-    link: string,
-    label: string
-}
-
-type NavItemProp = {
-    navList: NavItem[]
-}
-
-const Navbar = ({navList}: NavItemProp) => {
+const Navbar = ({ navList }: { navList: { link: string, label: string }[] }) => {
     const sideMenuRef = useRef<HTMLUListElement>(null)
     const [isScroll, setIsScroll] = useState(false)
     const openMenu = () => {
@@ -53,7 +44,7 @@ const Navbar = ({navList}: NavItemProp) => {
 
                 <div className="hidden lg:flex items-center justify-center gap-8">
                     <a href="#contact" className="flex items-center justify-center gap-2 outline-2 outline-slate-500 py-2 px-6 rounded-full bg-white">
-                        Contact <Image className="w-6 h-auto" src={assets.Arrow} alt="arrow" loading="lazy" />
+                        Contact <Image className="w-6 h-auto" src={assets.ArrowDark} alt="arrow" loading="lazy" />
                     </a>
                 </div>
 

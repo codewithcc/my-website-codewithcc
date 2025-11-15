@@ -1,7 +1,6 @@
 import type { Metadata } from "next"
 import { Outfit, Ovo } from "next/font/google"
 import "@/app/globals.css"
-import { SessionProvider } from "next-auth/react"
 
 const outfit = Outfit({
     subsets: ["latin"], weight: ["400", "500", "600", "700"]
