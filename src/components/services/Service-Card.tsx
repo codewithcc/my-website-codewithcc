@@ -1,3 +1,5 @@
+"use client"
+
 import Image from "next/image"
 import { assets } from "@/lib/assetsProvider"
 import {ServiceSimpleType} from "@/types"
@@ -10,7 +12,7 @@ const ServiceCard = (props: Props) => {
             <Image loading="lazy" src={props.icon} alt="service icon" width={200} height={200} className="w-12 h-auto" />
             <h2 className="text-3xl font-bold mt-8 lg:text-xl">{props.title}</h2>
             <p className="text-slate-500 mt-2 text-justify leading-6 lg:text-[14px]">{props.description}</p>
-            <a href={props.more} className="inline-flex items-center mt-6 group-hover:bg-pink-300 px-4 rounded-full transition-all ease-linear duration-150">Read more <Image loading="lazy" src={assets.RightArrowDark} alt="right arrow icon" className="w-6 h-auto" /></a>
+            <button disabled={props.more === ""} onClick={() => window.open(props.more)} className="inline-flex items-center mt-6 group-hover:bg-pink-300 px-4 rounded-full transition-all ease-linear duration-150 disabled:cursor-not-allowed">Read more <Image loading="lazy" src={assets.RightArrowDark} alt="right arrow icon" className="w-6 h-auto" /></button>
         </div>
     )
 }

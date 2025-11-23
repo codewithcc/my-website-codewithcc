@@ -2,6 +2,8 @@ import connectDB from "@/lib/mongoose"
 import Project from "@/models/Project"
 import { NextResponse } from "next/server"
 import mongoose from "mongoose"
+import {getServerSession} from "next-auth";
+import authOptions from "@/auth/auth";
 
 await connectDB()
 
@@ -26,6 +28,11 @@ export async function GET(_req: Request, {params}: {params: Promise<{id: string}
 
 export async function PUT(req: Request, { params }: { params: Promise<{ id: string }> }) {
     try {
+        const session = await getServerSession(authOptions)
+        if (!session) {
+            return NextResponse.json({error: 'You are not logged in'}, {status: 401})
+        }
+
         const {id} = await params
         if (!mongoose.Types.ObjectId.isValid(id)) {
             return NextResponse.json({message: 'ID is not valid'}, {status: 400})
@@ -57,6 +64,11 @@ export async function PUT(req: Request, { params }: { params: Promise<{ id: stri
 
 export async function DELETE(_req: Request, { params }: { params: Promise<{ id: string }> }) {
     try {
+        const session = await getServerSession(authOptions)
+        if (!session) {
+            return NextResponse.json({error: 'You are not logged in'}, {status: 401})
+        }
+
         const {id} = await params
         if (!mongoose.Types.ObjectId.isValid(id)) {
             return NextResponse.json({message: 'ID is not valid'}, {status: 400})

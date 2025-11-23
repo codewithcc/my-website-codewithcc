@@ -38,7 +38,7 @@ import DeleteIcon from '@/assets/ic_delete.svg'
 import EditIcon from '@/assets/ic_edit.svg'
 
 const ProfileImgRound = "https://firebasestorage.googleapis.com/v0/b/my-website-codewithcc.firebasestorage.app/o/public%2Fic_profile_img.png?alt=media"
-const ProfileImage = "https://firebasestorage.googleapis.com/v0/b/my-website-codewithcc.firebasestorage.app/o/public%2Fic_user_image.png?alt=media"
+const ProfileImage = "https://firebasestorage.googleapis.com/v0/b/my-website-codewithcc.firebasestorage.app/o/public%2Fic_user_image.png?alt=media&token=7663ce9e-3781-40e9-b02f-028306e67c32"
 
 export const assets = {
     ArrowLight, ArrowDark, Logo, HeaderBG, Menu, Close, ProfileImgRound, RightArrowLight, DownloadArrow, ProfileImage,
