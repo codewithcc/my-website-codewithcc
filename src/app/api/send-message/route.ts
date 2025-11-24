@@ -1,52 +1,59 @@
 import { NextResponse } from 'next/server'
+import { Resend } from "resend";
+
+interface RequestBody {
+    email: string;
+    name: string;
+    message: string;
+}
 
 export async function POST(req: Request) {
-  const formData = await req.formData()
-  const name = formData.get("name")
-  const email = formData.get("email")
-  const message = formData.get("message")
+    try {
+        const apiKey = process.env.RESEND_API_KEY
 
-  if (!name || !email || !message) {
-    return NextResponse.json(
-      {
-        message: "Missing required fields: email and message.",
-      },
-      { status: 400 }
-    )
-  }
+        if (!apiKey) {
+            return NextResponse.json({ message: "Internal Server Error" }, { status: 500 })
+        }
 
-  const accessKey = process.env.W3_ACCESS_KEY
-  if (!accessKey) {
-    return NextResponse.json(
-      { message: 'Server configuration error: Access key is missing.' },
-      { status: 500 }
-    )
-  }
-  formData.append('access_key', accessKey)
+        const resend = new Resend(apiKey)
+        const body: RequestBody = await req.json()
 
-  try {
-    const res = await fetch('https://api.web3forms.com/submit', {
-      method: 'POST',
-      body: formData,
-    })
+        const { email, name, message } = body;
 
-    const data = await res.json()
+        if (!email || !name || !message) {
+            return NextResponse.json(
+                { message: "Missing required fields: email, name, or message" },
+                { status: 400 }
+            )
+        }
 
-    if (res.ok && data.success) {
-      return NextResponse.json(data, { status: 200 })
-    } else {
-      return NextResponse.json(
-        {
-          message: data.message || "Web3Forms submission failed.",
-        },
-        { status: 400 }
-      )
+        const { data, error } = await resend.emails.send({
+            from: 'support@codewithcc.com',
+            to: ['codewithcc.dev@gmail.com'],
+            replyTo: body.email,
+            subject: `New Message from ${name}`,
+            text: message,
+            html: `
+                <h3>New Contact Form Submission</h3>
+                <p><strong>Name:</strong> ${name}</p>
+                <p><strong>Email:</strong> ${email}</p>
+                <p><strong>Message:</strong></p>
+                <p>${message}</p>
+            `
+        })
+
+        if (error) {
+            console.error("Resend Error:", error);
+            return NextResponse.json({ error: error.message }, { status: 500 })
+        }
+
+        return NextResponse.json({ success: true, data }, { status: 200 })
+
+    } catch (e) {
+        console.error("Unexpected Error:", e)
+        return NextResponse.json(
+            { error: "Internal Server Error" },
+            { status: 500 }
+        )
     }
-  } catch (error) {
-    console.error('Error submitting form:', error)
-    return NextResponse.json(
-      { message: 'An error occurred while submitting the form.' },
-      { status: 500 }
-    )
-  }
 }

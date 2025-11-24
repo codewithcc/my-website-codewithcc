@@ -147,7 +147,7 @@ export const ServiceApi = {
 }
 
 export const SendMessageApi = {
-    async sendMessage(data: FormData): Promise<any | null> {
+    async sendMessage(data: any): Promise<any | null> {
         try {
             const response = await apiClient.post("/send-message", data)
             return response.data
