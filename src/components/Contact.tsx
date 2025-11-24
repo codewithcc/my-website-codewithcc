@@ -39,11 +39,11 @@ const Contact = () => {
 
             <form onSubmit={onSubmit} className="flex flex-col items-center justify-center gap-6 w-full px-8 text-lg lg:w-[500px] mt-12 lg:px-0 lg:text-[16px]">
                 <div className="flex flex-col items-center justify-center gap-4 w-full lg:flex-row">
-                    <input value={name} onChange={(e) => setName(e.currentTarget.value)} className="bg-white ring ring-slate-500 px-3 py-2 w-full rounded-lg lg:px-2 lg:py-1" type="text" name="name" placeholder="Enter your name" required />
-                    <input value={email} onChange={(e) => setEmail(e.currentTarget.value)} className="bg-white ring ring-slate-500 px-3 py-2 w-full rounded-lg lg:px-2 lg:py-1" type="email" name="email" placeholder="Enter your email" required />
+                    <input disabled={loading} value={name} onChange={(e) => setName(e.currentTarget.value)} className="bg-white ring ring-slate-500 px-3 py-2 w-full rounded-lg lg:px-2 lg:py-1" type="text" name="name" placeholder="Enter your name" required />
+                    <input disabled={loading} value={email} onChange={(e) => setEmail(e.currentTarget.value)} className="bg-white ring ring-slate-500 px-3 py-2 w-full rounded-lg lg:px-2 lg:py-1" type="email" name="email" placeholder="Enter your email" required />
                 </div>
-                <textarea value={message} onChange={(e) => setMessage(e.currentTarget.value)} className="bg-white ring ring-slate-500 p-3 w-full rounded-lg lg:p-2" name="message" placeholder="Enter your message" rows={5} required></textarea>
-                <button type="submit" className="flex items-center justify-center gap-2 mt-2 bg-black text-white px-8 py-3 cursor-pointer rounded-full">{error == null && loading ? "Submitting..." : "Submit"} {(error == null && !loading) && <Image src={assets.RightArrowLight} alt="Right arrow" className="w-6 h-auto" loading="lazy" />}</button>
+                <textarea disabled={loading} value={message} onChange={(e) => setMessage(e.currentTarget.value)} className="bg-white ring ring-slate-500 p-3 w-full rounded-lg lg:p-2" name="message" placeholder="Enter your message" rows={5} required></textarea>
+                <button disabled={loading} type="submit" className="flex items-center justify-center gap-2 mt-2 bg-black text-white px-8 py-3 cursor-pointer rounded-full disabled:cursor-not-allowed">{error == null && loading ? "Submitting..." : "Submit"} {(error == null && !loading) && <Image src={assets.RightArrowLight} alt="Right arrow" className="w-6 h-auto" loading="lazy" />}</button>
 
                 {error != null && <p className={`px-4 py-2 rounded-lg flex items-center justify-center gap-2 ${error ? "bg-red-200 text-red-800" : "bg-green-200 text-green-800"}`}><Image src={error ? assets.ErrorIcon : assets.SuccessIcon} alt="status icon" className="w-6 h-auto" loading="lazy" /> {error? "Can't send message" : "Message send successfully"} <Image onClick={() => setError(null)} src={error ? assets.ErrorCloseIcon : assets.SuccessCloseIcon} alt="close icon" className="w-4 h-auto cursor-pointer" loading="lazy" /></p>}
             </form>
